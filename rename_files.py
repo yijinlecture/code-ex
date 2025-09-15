@@ -26,7 +26,7 @@ def parse_variable_datetime(s):
     
     while len(parts) < 4: parts.append('0')
         
-    return parts[0], parts[1], parts[2], parts[3], s # day, hour, minute, second, remaining
+    return parts[0], parts[1], parts[2], parts[3] # day, hour, minute, second
 
 def convert_filename_final(filename):
     """
@@ -63,8 +63,8 @@ def convert_filename_final(filename):
         else:
             datetime_s = rest[:-1]
             index = rest[-1]
-            day, hour, minute, second, remaining = parse_variable_datetime(datetime_s)
-            index = remaining + index
+            day, hour, minute, second = parse_variable_datetime(datetime_s)
+            
 
         
         new_timestamp = (
